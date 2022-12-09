@@ -1,16 +1,17 @@
 package com.coderscampus.uservalidationwithcsvfile;
 
-// this is a User POJO
-
 public class User {
-    private String username; // which are email addresses. 
-	private String password;
-	private String name; 
 	
-	public void LoadUser(String[] input) {
-		this.username = input[0];
-		this.password = input[1];
-		this.name = input[2];
+	private String username; // which is the email address
+	private String password;
+	private String name;
+	
+	
+	public User(String[] LineDataInput) 
+	{
+		this.username = LineDataInput[0];
+		this.password = LineDataInput[1];
+		this.name = LineDataInput[2];
 	}
 	
 	public String getUsername() {
@@ -31,6 +32,6 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
 
 }
