@@ -1,6 +1,7 @@
 package com.coderscampus.uservalidationwithcsvfile;
 
 import java.util.Scanner;
+import java.io.IOException;
 import com.coderscampus.uservalidationwithcsvfile.*;
 
 // This UserLoginApplication is the main app.  
@@ -23,16 +24,21 @@ public class UserLoginApplication
 	UserServiceLoading userServiceLoading = new UserServiceLoading();
 	
 	
-	public static void main(String[] args) 
+	public static void main(String[] args) throws IOException 
 	{
 		// TODO Auto-generated method stub
 		
 		UserLoginApplication launch = new UserLoginApplication();
-		launch.askUserInput();
+		
+			
+		
+		launch.askUserInputAndLogin();
 
 	}
 	
-	public void askUserInput ()
+	
+	
+	public void askUserInputAndLogin () throws IOException
 	{
 		Scanner scannerVar = null;
 		try
@@ -47,7 +53,9 @@ public class UserLoginApplication
 				System.out.println("Enter your password: ");
 				String password = scannerVar.nextLine();
 				
-				User validUserLogin = UserServiceValidation.validateUser(username, password);
+				UserServiceValidation userServiceValidation = new UserServiceValidation();
+				
+				User validUserLogin = userServiceValidation.validateUser(username, password);
 				if (validUserLogin != null)
 				{
 					System.out.println("Welcome! " + validUserLogin.getName());
