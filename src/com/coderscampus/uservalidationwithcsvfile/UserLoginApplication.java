@@ -51,7 +51,7 @@ public class UserLoginApplication
 				if (validUserLogin != null)
 				{
 					System.out.println("Welcome! " + validUserLogin.getName());
-					validUserLogin = true;
+					validLogin = true;
 				}
 				else
 				{
